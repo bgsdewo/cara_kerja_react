@@ -40,8 +40,6 @@ function Tabbed({ content }) {
       ) : (
         <AnotherTabContent />
       )}
-      {/* //pengunaan yang tidak disarankan karena terbatasnya akses
-      {TabContent({ item: content.at(activeTab) })} */}
     </div>
   );
 }
@@ -101,6 +99,3 @@ function AnotherTabContent() {
     </div>
   );
 }
-
-console.log(<AnotherTabContent item={123} />);
-console.log(AnotherTabContent());
