@@ -64,11 +64,22 @@ function Tab({ num, activeTab, onClick }) {
 function TabContent({ item }) {
   const [showDetails, setShowDetails] = useState(true);
   const [likes, setLikes] = useState(0);
-
+  console.log("render");
   function handleInc() {
     setLikes(likes + 1);
   }
-
+  function handleLikes() {
+    setLikes(likes + 1);
+    setLikes(likes + 1);
+    setLikes(likes + 1);
+  }
+  function handleUndo() {
+    setShowDetails(true);
+    setLikes(0);
+    //cara ini salah
+    console.log(setShowDetails);
+    console.log(likes);
+  }
   return (
     <div className="tab-content">
       <h4>{item.title}</h4>
@@ -82,12 +93,12 @@ function TabContent({ item }) {
         <div className="hearts-counter">
           <span>{likes} 👍</span>
           <button onClick={handleInc}>+1</button>
-          <button>+3</button>
+          <button onClick={handleLikes}>+3</button>
         </div>
       </div>
 
       <div className="tab-undo">
-        <button>Batal</button>
+        <button onClick={handleUndo}>Batal</button>
         <button>Batal dalam 2d</button>
       </div>
     </div>
