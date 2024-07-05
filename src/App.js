@@ -65,21 +65,37 @@ function TabContent({ item }) {
   const [showDetails, setShowDetails] = useState(true);
   const [likes, setLikes] = useState(0);
   console.log("render");
+
   function handleInc() {
-    setLikes(likes + 1);
+    setLikes((likes) => likes + 1);
   }
   function handleLikes() {
-    setLikes(likes + 1);
-    setLikes(likes + 1);
-    setLikes(likes + 1);
+    // setLikes(likes + 1);
+    // setLikes(likes + 1);
+    // setLikes(likes + 1);
+    // setLikes((likes) => likes + 1);
+    // setLikes((likes) => likes + 1);
+    // setLikes((likes) => {
+    //   const lastLikes = likes + 1;
+    //   console.log(lastLikes);
+    //   return lastLikes;
+    // });
+    handleInc();
+    handleInc();
+    handleInc();
   }
   function handleUndo() {
     setShowDetails(true);
     setLikes(0);
     //cara ini salah
-    console.log(setShowDetails);
+    console.log(showDetails);
     console.log(likes);
   }
+
+  function handleUndoLater() {
+    setTimeout(handleUndo, 2000);
+  }
+
   return (
     <div className="tab-content">
       <h4>{item.title}</h4>
@@ -99,7 +115,7 @@ function TabContent({ item }) {
 
       <div className="tab-undo">
         <button onClick={handleUndo}>Batal</button>
-        <button>Batal dalam 2d</button>
+        <button onClick={handleUndoLater}>Batal dalam 2d</button>
       </div>
     </div>
   );
